@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockFlow Login</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Left Panel -->
+
+    <div class="left-panel">
+
+        <div class="overlay"></div>
+
+        <div class="logo">
+
+            <div class="logo-box">
+                <i class="fa-solid fa-chart-column"></i>
+            </div>
+
+            <div>
+
+                <h2>StockFlow</h2>
+
+                <p>Smart Inventory & Sales Management System</p>
+
+            </div>
+
+        </div>
+
+        <div class="content">
+
+            <h1>Manage Inventory <br> Smarter</h1>
+
+            <ul>
+
+                <li>Track Products</li>
+
+                <li>Monitor Sales</li>
+
+                <li>Grow Your Business</li>
+
+            </ul>
+
+        </div>
+
+        <div class="stats">
+
+            <div>
+
+                <h3>1000+</h3>
+
+                <span>Products</span>
+
+            </div>
+
+            <div>
+
+                <h3>Real-Time</h3>
+
+                <span>Inventory</span>
+
+            </div>
+
+            <div>
+
+                <h3>Secure</h3>
+
+                <span>Login</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Right Panel -->
+
+    <div class="right-panel">
+
+        <div class="login-box">
+
+            <h1>Welcome Back</h1>
+
+            <p>Sign in to access your StockFlow dashboard.</p>
+
+            <form>
+
+                <div class="input-group">
+
+                    <label>Username</label>
+
+                    <input type="text" placeholder="Enter your username">
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Password</label>
+
+                    <div class="password-box">
+
+                        <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password">
+
+                        <i
+                        class="fa-solid fa-eye"
+                        id="togglePassword"></i>
+
+                    </div>
+
+                </div>
+
+                <div class="remember">
+
+                    <label>
+
+                        <input type="checkbox">
+
+                        Remember me
+
+                    </label>
+
+                    <a href="#">Forgot Password?</a>
+
+                </div>
+
+                <button class="login-btn">
+
+                    Access Dashboard
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/login.js') }}"></script>
+
+</body>
+</html>
