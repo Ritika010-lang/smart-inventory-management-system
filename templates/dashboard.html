@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>StockFlow Dashboard</title>
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ===========================
+        SIDEBAR
+=========================== -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<h2>StockFlow</h2>
+
+</div>
+
+<ul>
+
+<li class="active">
+
+<i class="fa-solid fa-house"></i>
+
+Dashboard
+
+</li>
+
+<li>
+
+<i class="fa-solid fa-box"></i>
+
+Products
+
+</li>
+
+<li>
+
+<i class="fa-solid fa-warehouse"></i>
+
+Inventory
+
+</li>
+
+<li>
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+Sales
+
+</li>
+
+<li>
+
+<i class="fa-solid fa-chart-column"></i>
+
+Reports
+
+</li>
+
+<li>
+
+<i class="fa-solid fa-users"></i>
+
+Customers
+
+</li>
+
+<li>
+
+<i class="fa-solid fa-gear"></i>
+
+Settings
+
+</li>
+
+</ul>
+
+</aside>
+
+<!-- ===========================
+        MAIN
+=========================== -->
+
+<main class="main">
+
+<!-- HEADER -->
+
+<header>
+
+<div class="title">
+
+<h1>Dashboard</h1>
+
+<p>Welcome back Ritika 👋</p>
+
+</div>
+
+<div class="right-header">
+
+<div class="search">
+
+<i class="fa-solid fa-search"></i>
+
+<input
+type="text"
+placeholder="Search...">
+
+</div>
+
+<div class="notification">
+
+<i class="fa-solid fa-bell"></i>
+
+</div>
+
+<div class="profile">
+
+<img
+src="https://i.pravatar.cc/45"
+alt="">
+
+<div>
+
+<h4>Ritika</h4>
+
+<p>Administrator</p>
+
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- ===========================
+        CARDS
+=========================== -->
+
+<section class="cards">
+
+<div class="card">
+
+<div>
+
+<h3>Total Products</h3>
+
+<h1>1250</h1>
+
+<p>+12%</p>
+
+</div>
+
+<i class="fa-solid fa-box"></i>
+
+</div>
+
+<div class="card">
+
+<div>
+
+<h3>Total Sales</h3>
+
+<h1>₹4,80,000</h1>
+
+<p>+8%</p>
+
+</div>
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+</div>
+
+<div class="card">
+
+<div>
+
+<h3>Revenue</h3>
+
+<h1>₹8,90,000</h1>
+
+<p>+20%</p>
+
+</div>
+
+<i class="fa-solid fa-chart-line"></i>
+
+</div>
+
+<div class="card">
+
+<div>
+
+<h3>Low Stock</h3>
+
+<h1>12</h1>
+
+<p>Alert</p>
+
+</div>
+
+<i class="fa-solid fa-triangle-exclamation"></i>
+
+</div>
+
+</section>
+<!-- ===========================
+      CHART SECTION
+=========================== -->
+
+<section class="charts">
+
+    <div class="chart-card">
+
+        <div class="card-header">
+
+            <h2>Sales Overview</h2>
+
+            <button>This Month</button>
+
+        </div>
+
+        <canvas id="salesChart"></canvas>
+
+    </div>
+
+    <div class="chart-card">
+
+        <div class="card-header">
+
+            <h2>Revenue Sources</h2>
+
+        </div>
+
+        <canvas id="revenueChart"></canvas>
+
+    </div>
+
+</section>
+
+<!-- ===========================
+      TABLE SECTION
+=========================== -->
+
+<section class="table-section">
+
+    <div class="recent-orders">
+
+        <div class="card-header">
+
+            <h2>Recent Sales</h2>
+
+            <a href="#">View All</a>
+
+        </div>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Order ID</th>
+
+                    <th>Customer</th>
+
+                    <th>Product</th>
+
+                    <th>Status</th>
+
+                    <th>Amount</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>#1001</td>
+
+                    <td>Ritika</td>
+
+                    <td>Keyboard</td>
+
+                    <td><span class="success">Completed</span></td>
+
+                    <td>₹2,499</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>#1002</td>
+
+                    <td>Aman</td>
+
+                    <td>Mouse</td>
+
+                    <td><span class="pending">Pending</span></td>
+
+                    <td>₹899</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>#1003</td>
+
+                    <td>Priya</td>
+
+                    <td>Monitor</td>
+
+                    <td><span class="success">Completed</span></td>
+
+                    <td>₹11,999</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>#1004</td>
+
+                    <td>Rahul</td>
+
+                    <td>SSD</td>
+
+                    <td><span class="cancel">Cancelled</span></td>
+
+                    <td>₹3,499</td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <!-- LOW STOCK -->
+
+    <div class="low-stock">
+
+        <div class="card-header">
+
+            <h2>Low Stock Alerts</h2>
+
+        </div>
+
+        <div class="stock-item">
+
+            <h4>Wireless Mouse</h4>
+
+            <span>4 Left</span>
+
+        </div>
+
+        <div class="stock-item">
+
+            <h4>Mechanical Keyboard</h4>
+
+            <span>2 Left</span>
+
+        </div>
+
+        <div class="stock-item">
+
+            <h4>USB Cable</h4>
+
+            <span>6 Left</span>
+
+        </div>
+
+        <div class="stock-item">
+
+            <h4>Gaming Headset</h4>
+
+            <span>3 Left</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+</body>
+
+</html>
