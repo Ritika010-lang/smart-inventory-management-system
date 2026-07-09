@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Add Product | StockFlow</title>
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/add_product.css') }}">
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="overlay">
+
+<div class="modal">
+
+<!-- ======================
+        HEADER
+======================= -->
+
+<div class="modal-header">
+
+<div class="header-left">
+
+<div class="header-icon">
+
+<i class="fa-solid fa-box-open"></i>
+
+</div>
+
+<div>
+
+<h2>
+
+Add New Product
+
+</h2>
+
+<p>
+
+Fill product details to add inventory.
+
+</p>
+
+</div>
+
+</div>
+
+<button class="close-btn">
+
+<i class="fa-solid fa-xmark"></i>
+
+</button>
+
+</div>
+
+<!-- ======================
+        FORM
+======================= -->
+
+<form>
+
+<!-- IMAGE -->
+
+<div class="form-group">
+
+<label>
+
+Product Image
+
+</label>
+
+<div class="upload-box">
+
+<input
+
+type="file"
+
+id="productImage"
+
+hidden>
+
+<label
+
+for="productImage"
+
+class="upload-label">
+
+<i class="fa-solid fa-cloud-arrow-up"></i>
+
+<h3>
+
+Drop image here
+
+
+</h3>
+
+<p>
+
+PNG • JPG • WEBP
+
+(Max 10MB)
+
+</p>
+
+<span>
+
+Browse Image
+
+</span>
+
+</label>
+
+</div>
+
+</div>
+
+<!-- PRODUCT NAME -->
+
+<div class="form-group">
+
+<label>
+
+Product Name
+
+<span>*</span>
+
+</label>
+
+<input
+
+type="text"
+
+placeholder="Wireless Headphones">
+
+</div>
+
+<!-- ROW -->
+
+<div class="row">
+
+<div class="form-group">
+
+<label>
+
+Category
+
+<span>*</span>
+
+</label>
+
+<select>
+
+<option>
+
+Select Category
+
+</option>
+
+<option>
+
+Electronics
+
+</option>
+
+<option>
+
+Accessories
+
+</option>
+
+<option>
+
+Furniture
+
+</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>
+
+Price (₹)
+
+<span>*</span>
+
+</label>
+
+<div class="input-icon">
+
+<i class="fa-solid fa-indian-rupee-sign"></i>
+
+<input
+
+type="number"
+
+placeholder="0.00">
+
+</div>
+
+</div>
+
+</div>
+<!-- ======================
+        ROW - 2
+======================= -->
+
+<div class="row">
+
+    <!-- Quantity -->
+
+    <div class="form-group">
+
+        <label>
+
+            Quantity
+
+            <span>*</span>
+
+        </label>
+
+        <input
+
+            type="number"
+
+            placeholder="0"
+
+            min="0">
+
+    </div>
+
+    <!-- Supplier -->
+
+    <div class="form-group">
+
+        <label>
+
+            Supplier
+
+            <span>*</span>
+
+        </label>
+
+        <input
+
+            type="text"
+
+            placeholder="TechDistrib Ltd.">
+
+    </div>
+
+</div>
+
+<!-- SKU -->
+
+<div class="form-group">
+
+    <label>
+
+        Product SKU
+
+    </label>
+
+    <input
+
+        type="text"
+
+        placeholder="STK-2026-001">
+
+</div>
+
+<!-- DESCRIPTION -->
+
+<div class="form-group">
+
+    <label>
+
+        Description
+
+    </label>
+
+    <textarea
+
+        rows="5"
+
+        placeholder="Write a short product description, features, specifications and warranty details..."></textarea>
+
+</div>
+
+<!-- STATUS -->
+
+<div class="row">
+
+    <div class="form-group">
+
+        <label>
+
+            Product Status
+
+        </label>
+
+        <select>
+
+            <option>
+
+                In Stock
+
+            </option>
+
+            <option>
+
+                Low Stock
+
+            </option>
+
+            <option>
+
+                Out Of Stock
+
+            </option>
+
+        </select>
+
+    </div>
+
+    <div class="form-group">
+
+<label>
+
+Product Image
+
+</label>
+
+<div class="upload-box">
+
+<input
+
+type="file"
+
+id="productImage"
+
+hidden>
+
+<label
+
+for="productImage"
+
+class="upload-label">
+
+<i class="fa-solid fa-cloud-arrow-up"></i>
+
+<h3>
+
+Drop image here
+
+</h3>
+
+<p>
+
+PNG • JPG • WEBP
+
+(Max 10MB)
+
+</p>
+
+<span>
+
+Browse Image
+
+</span>
+
+</label>
+
+</div>
+
+<!-- IMAGE PREVIEW START -->
+
+<div class="image-preview" id="imagePreview">
+
+    <img
+        id="previewImage"
+        src=""
+        alt="Preview">
+
+</div>
+
+<!-- IMAGE PREVIEW END -->
+
+</div>
+</div>
+
+<!-- TAGS -->
+
+<div class="form-group">
+
+    <label>
+
+        Product Tags
+
+    </label>
+
+    <input
+
+        type="text"
+
+        placeholder="Laptop, Gaming, Electronics">
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="modal-footer">
+
+    <button
+
+        type="button"
+
+        class="cancel-btn">
+
+        Cancel
+
+    </button>
+
+    <button
+
+        type="submit"
+
+        class="save-btn">
+
+        <i class="fa-solid fa-plus"></i>
+
+        Save Product
+
+    </button>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/add_product.js') }}"></script>
+
+</body>
+
+</html>
