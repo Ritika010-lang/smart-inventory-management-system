@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Products | StockFlow</title>
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/products.css') }}">
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- =========================
+        SIDEBAR
+========================== -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<i class="fa-solid fa-chart-column"></i>
+
+<h2>StockFlow</h2>
+
+</div>
+
+<ul>
+
+<li>
+
+<a href="/dashboard">
+
+<i class="fa-solid fa-house"></i>
+
+Dashboard
+
+</a>
+
+</li>
+
+<li class="active">
+
+<a href="/products">
+
+<i class="fa-solid fa-box"></i>
+
+Products
+
+</a>
+
+</li>
+
+<li>
+
+<a href="/inventory">
+
+<i class="fa-solid fa-warehouse"></i>
+
+Inventory
+
+</a>
+
+</li>
+
+<li>
+
+<a href="/sales">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+Sales
+
+</a>
+
+</li>
+
+<li>
+
+<a href="/reports">
+
+<i class="fa-solid fa-chart-line"></i>
+
+Reports
+
+</a>
+
+</li>
+
+<li>
+
+<a href="/settings">
+
+<i class="fa-solid fa-gear"></i>
+
+Settings
+
+</a>
+
+</li>
+
+</ul>
+
+</aside>
+
+<!-- =========================
+        MAIN CONTENT
+========================== -->
+
+<main class="main">
+
+<header>
+
+<div>
+
+<h1>
+
+Product Management
+
+</h1>
+
+<p>
+
+Manage your product catalog and inventory
+
+</p>
+
+</div>
+
+<div class="top-right">
+
+<div class="search-box">
+
+<i class="fa-solid fa-search"></i>
+
+<input
+type="text"
+placeholder="Search anything...">
+
+</div>
+
+<div class="notification">
+
+<i class="fa-regular fa-bell"></i>
+
+<span></span>
+
+</div>
+
+<div class="profile">
+
+<div class="avatar">
+
+RG
+
+</div>
+
+<div>
+
+<h4>
+
+Ritika Goel
+
+</h4>
+
+<p>
+
+Administrator
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- =========================
+        KPI CARDS
+========================== -->
+
+<section class="cards">
+
+<div class="card">
+
+<div class="icon purple">
+
+<i class="fa-solid fa-box"></i>
+
+</div>
+
+<div class="details">
+
+<h2>
+
+1250
+
+</h2>
+
+<p>
+
+Total Products
+
+</p>
+
+<small>
+
++12% this month
+
+</small>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="icon orange">
+
+<i class="fa-solid fa-triangle-exclamation"></i>
+
+</div>
+
+<div class="details">
+
+<h2>
+
+18
+
+</h2>
+
+<p>
+
+Low Stock
+
+</p>
+
+<small>
+
+Need attention
+
+</small>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="icon blue">
+
+<i class="fa-solid fa-tags"></i>
+
+</div>
+
+<div class="details">
+
+<h2>
+
+24
+
+</h2>
+
+<p>
+
+Categories
+
+</p>
+
+<small>
+
+Active categories
+
+</small>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="icon green">
+
+<i class="fa-solid fa-indian-rupee-sign"></i>
+
+</div>
+
+<div class="details">
+
+<h2>
+
+₹8.5L
+
+</h2>
+
+<p>
+
+Inventory Value
+
+</p>
+
+<small>
+
+Updated Today
+
+</small>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+        ACTION BAR
+=========================== -->
+
+<section class="action-bar">
+
+    <div class="left-actions">
+
+        <div class="search-product">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                placeholder="Search product...">
+
+        </div>
+
+        <select>
+
+            <option>All Categories</option>
+
+            <option>Electronics</option>
+
+            <option>Furniture</option>
+
+            <option>Accessories</option>
+
+        </select>
+
+        <select>
+
+            <option>All Status</option>
+
+            <option>In Stock</option>
+
+            <option>Low Stock</option>
+
+            <option>Out Of Stock</option>
+
+        </select>
+
+    </div>
+
+    <div class="right-actions">
+
+        <button class="export-btn">
+
+            <i class="fa-solid fa-download"></i>
+
+            Export
+
+        </button>
+
+        <a href="/add_product" class="add-btn">
+    <i class="fa-solid fa-plus"></i>
+    Add Product
+</a>
+
+    </div>
+
+</section>
+
+<!-- ===========================
+        CONTENT GRID
+=========================== -->
+
+<section class="content-grid">
+
+<!-- ===========================
+        PRODUCT TABLE
+=========================== -->
+
+<div class="product-table">
+
+<div class="table-header">
+
+<h2>
+
+Products
+
+</h2>
+
+<p>
+
+Showing 8 Products
+
+</p>
+
+</div>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+
+<th>Product</th>
+
+<th>Category</th>
+
+<th>Price</th>
+
+<th>Quantity</th>
+
+<th>Status</th>
+
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>PRD-001</td>
+
+<td class="product-name">
+
+<div class="product-img">
+
+WH
+
+</div>
+
+Wireless Headphones
+
+</td>
+
+<td>
+
+Electronics
+
+</td>
+
+<td>
+
+₹24,999
+
+</td>
+
+<td>
+
+52
+
+</td>
+
+<td>
+
+<span class="badge success">
+
+In Stock
+
+</span>
+
+</td>
+
+<td>
+
+<div class="table-actions">
+
+<i class="fa-regular fa-eye"></i>
+
+<i class="fa-regular fa-pen-to-square"></i>
+
+<i class="fa-regular fa-trash-can"></i>
+
+</div>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>PRD-002</td>
+
+<td class="product-name">
+
+<div class="product-img orange">
+
+MK
+
+</div>
+
+Mechanical Keyboard
+
+</td>
+
+<td>
+
+Accessories
+
+</td>
+
+<td>
+
+₹8,999
+
+</td>
+
+<td>
+
+9
+
+</td>
+
+<td>
+
+<span class="badge warning">
+
+Low Stock
+
+</span>
+
+</td>
+
+<td>
+
+<div class="table-actions">
+
+<i class="fa-regular fa-eye"></i>
+
+<i class="fa-regular fa-pen-to-square"></i>
+
+<i class="fa-regular fa-trash-can"></i>
+
+</div>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>PRD-003</td>
+
+<td class="product-name">
+
+<div class="product-img green">
+
+MS
+
+</div>
+
+Gaming Mouse
+
+</td>
+
+<td>
+
+Accessories
+
+</td>
+
+<td>
+
+₹3,499
+
+</td>
+
+<td>
+
+0
+
+</td>
+
+<td>
+
+<span class="badge danger">
+
+Out of Stock
+
+</span>
+
+</td>
+
+<td>
+
+<div class="table-actions">
+
+<i class="fa-regular fa-eye"></i>
+
+<i class="fa-regular fa-pen-to-square"></i>
+
+<i class="fa-regular fa-trash-can"></i>
+
+</div>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<!-- ===========================
+        RIGHT PANEL
+=========================== -->
+
+<div class="right-panel">
+
+<div class="summary-card">
+
+<h3>
+
+Inventory Summary
+
+</h3>
+
+<div class="summary-item">
+
+<span>In Stock</span>
+
+<b>865</b>
+
+</div>
+
+<div class="summary-item">
+
+<span>Low Stock</span>
+
+<b class="orange-text">18</b>
+
+</div>
+
+<div class="summary-item">
+
+<span>Out Of Stock</span>
+
+<b class="red-text">6</b>
+
+</div>
+
+<div class="summary-item">
+
+<span>Total Value</span>
+
+<b>₹8.5L</b>
+
+</div>
+
+</div>
+
+<!-- ===========================
+        LOW STOCK ALERT
+=========================== -->
+
+<div class="alert-card">
+
+    <div class="card-title">
+
+        <h3>Low Stock Alert</h3>
+
+        <span>Needs Attention</span>
+
+    </div>
+
+    <div class="alert-item">
+
+        <div>
+
+            <h4>Mechanical Keyboard</h4>
+
+            <small>Only 9 Units Left</small>
+
+        </div>
+
+        <span class="badge warning">
+
+            Restock
+
+        </span>
+
+    </div>
+
+    <div class="alert-item">
+
+        <div>
+
+            <h4>Gaming Mouse</h4>
+
+            <small>Out Of Stock</small>
+
+        </div>
+
+        <span class="badge danger">
+
+            Empty
+
+        </span>
+
+    </div>
+
+    <div class="alert-item">
+
+        <div>
+
+            <h4>USB-C Hub</h4>
+
+            <small>Only 4 Units Left</small>
+
+        </div>
+
+        <span class="badge warning">
+
+            Restock
+
+        </span>
+
+    </div>
+
+</div>
+
+<!-- ===========================
+        TOP SELLING
+=========================== -->
+
+<div class="top-selling">
+
+    <div class="card-title">
+
+        <h3>Top Selling</h3>
+
+    </div>
+
+    <div class="selling-item">
+
+        <span>#1 Wireless Headphones</span>
+
+        <b>356 Sold</b>
+
+    </div>
+
+    <div class="selling-item">
+
+        <span>#2 Mechanical Keyboard</span>
+
+        <b>278 Sold</b>
+
+    </div>
+
+    <div class="selling-item">
+
+        <span>#3 Gaming Mouse</span>
+
+        <b>241 Sold</b>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+        ACTIVITY
+=========================== -->
+
+<section class="activity">
+
+<div class="activity-header">
+
+<h2>
+
+Recent Product Activity
+
+</h2>
+
+<a href="#">
+
+View All
+
+</a>
+
+</div>
+
+<div class="timeline">
+
+<div class="timeline-item">
+
+<div class="circle purple"></div>
+
+<div>
+
+<h4>
+
+New Product Added
+
+</h4>
+
+<p>
+
+Wireless Noise Cancelling Headphones
+
+</p>
+
+<small>
+
+Today • 09:30 AM
+
+</small>
+
+</div>
+
+</div>
+
+<div class="timeline-item">
+
+<div class="circle orange"></div>
+
+<div>
+
+<h4>
+
+Low Stock Alert
+
+</h4>
+
+<p>
+
+Mechanical Keyboard (9 Units)
+
+</p>
+
+<small>
+
+Today • 08:40 AM
+
+</small>
+
+</div>
+
+</div>
+
+<div class="timeline-item">
+
+<div class="circle red"></div>
+
+<div>
+
+<h4>
+
+Out Of Stock
+
+</h4>
+
+<p>
+
+Gaming Mouse
+
+</p>
+
+<small>
+
+Yesterday • 06:10 PM
+
+</small>
+
+</div>
+
+</div>
+
+<div class="timeline-item">
+
+<div class="circle green"></div>
+
+<div>
+
+<h4>
+
+Inventory Updated
+
+</h4>
+
+<p>
+
+USB-C Hub Restocked (+120 Units)
+
+</p>
+
+<small>
+
+Yesterday • 12:45 PM
+
+</small>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/products.js') }}"></script>
+
+</body>
+
+</html>
