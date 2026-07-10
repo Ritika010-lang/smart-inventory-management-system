@@ -95,13 +95,13 @@
 
             <p>Sign in to access your StockFlow dashboard.</p>
 
-            <form>
+            <form action="/login" method="POST">
 
                 <div class="input-group">
 
                     <label>Username</label>
 
-                    <input type="text" placeholder="Enter your username">
+                    <input type="text" name="username"placeholder="Enter your username" required>
 
                 </div>
 
@@ -113,8 +113,8 @@
 
                         <input
                         type="password"
-                        id="password"
-                        placeholder="Enter your password">
+                        id="password" name="password"
+                        placeholder="Enter your password" required>
 
                         <i
                         class="fa-solid fa-eye"
