@@ -989,3 +989,340 @@ overflow-x:auto;
 }
 
 }
+.left-actions form{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.left-actions form input,
+.left-actions form select{
+    height:42px;
+}
+
+.flash-message{
+
+    background:#16a34a;
+
+    color:white;
+
+    padding:15px 20px;
+
+    border-radius:8px;
+
+    margin:20px 0;
+
+    font-weight:600;
+
+    font-size:16px;
+
+}
+
+.export-btn{
+
+    text-decoration:none;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+/* ===========================
+   ACTION BUTTONS
+=========================== */
+
+.action-buttons{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+.action-buttons a{
+
+    text-decoration:none;
+
+}
+.edit-btn{
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    padding:8px 16px;
+
+    border-radius:8px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+.edit-btn:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 18px rgba(37,99,235,.25);
+
+}
+
+.delete-btn{
+
+    background:#dc2626;
+
+    color:white;
+
+    border:none;
+
+    padding:8px 16px;
+
+    border-radius:8px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+.delete-btn:hover{
+
+    background:#b91c1c;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 18px rgba(220,38,38,.25);
+
+}
+
+.filter-btn{
+
+    background:#6366f1;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:8px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+.filter-btn:hover{
+
+    background:#4f46e5;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 18px rgba(99,102,241,.25);
+
+}
+
+.export-btn{
+
+    background:#16a34a;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:8px;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    transition:.3s;
+
+}
+
+.export-btn:hover{
+
+    background:#15803d;
+
+    transform:translateY(-2px);
+
+}
+
+.add-btn{
+
+    background:#7c3aed;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.add-btn:hover{
+
+    background:#6d28d9;
+
+    transform:translateY(-2px);
+
+}
+
+button{
+
+    transition:all .3s ease;
+
+}
+
+button:hover{
+
+    cursor:pointer;
+
+}
+
+.action-buttons{
+
+    display:flex;
+
+    gap:10px;
+
+    justify-content:center;
+
+}
+
+.status{
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.in-stock{
+
+    background:#dcfce7;
+
+    color:#15803d;
+
+}
+
+.low-stock{
+
+    background:#fef3c7;
+
+    color:#b45309;
+
+}
+
+.out-stock{
+
+    background:#fee2e2;
+
+    color:#dc2626;
+
+}
+
+.status{
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    display:inline-block;
+
+}
+
+.in-stock{
+
+    background:#dcfce7;
+
+    color:#15803d;
+
+}
+
+.low-stock{
+
+    background:#fef3c7;
+
+    color:#b45309;
+
+}
+
+.out-stock{
+
+    background:#fee2e2;
+
+    color:#dc2626;
+
+}
+
+.edit-btn,
+.delete-btn,
+.filter-btn,
+.export-btn,
+.add-btn{
+
+    transition:all .3s ease;
+
+}
+
+.edit-btn:hover,
+.delete-btn:hover,
+.filter-btn:hover,
+.export-btn:hover,
+.add-btn:hover{
+
+    transform:translateY(-2px);
+
+}

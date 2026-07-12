@@ -34,51 +34,51 @@ if (imageInput) {
 // FORM VALIDATION
 // ======================================
 
-const form = document.querySelector("form");
+// const form = document.querySelector("form");
 
-if (form) {
+// if (form) {
 
-    form.addEventListener("submit", function (e) {
+//     form.addEventListener("submit", function (e) {
 
-        e.preventDefault();
+//         //e.preventDefault();
 
-        const requiredFields = form.querySelectorAll("input[type='text'], input[type='number'], select");
+//         const requiredFields = form.querySelectorAll("input[type='text'], input[type='number'], select");
 
-        let valid = true;
+//         let valid = true;
 
-        requiredFields.forEach(field => {
+//         requiredFields.forEach(field => {
 
-            if (field.value.trim() === "") {
+//             if (field.value.trim() === "") {
 
-                field.classList.remove("success");
+//                 field.classList.remove("success");
 
-                field.classList.add("error");
+//                 field.classList.add("error");
 
-                valid = false;
+//                 valid = false;
 
-            } else {
+//             } else {
 
-                field.classList.remove("error");
+//                 field.classList.remove("error");
 
-                field.classList.add("success");
+//                 field.classList.add("success");
 
-            }
+//             }
 
-        });
+//         });
 
-        if (!valid) {
+//         if (!valid) {
 
-            alert("Please fill all required fields.");
+//             alert("Please fill all required fields.");
 
-            return;
+//             return;
 
-        }
+//         }
 
-        alert("Product information validated successfully!");
+//         alert("Product information validated successfully!");
 
-    });
+//     });
 
-}
+// }
 
 // ======================================
 // CLOSE BUTTON

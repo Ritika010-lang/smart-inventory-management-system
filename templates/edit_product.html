@@ -78,7 +78,7 @@ Fill product details to add inventory.
         FORM
 ======================= -->
 
-<form action="/add-product" method="POST">
+<form action="{{ url_for('update_product', product_id=product[0]) }}" method="POST">
 
 <!-- IMAGE -->
 
@@ -148,10 +148,10 @@ Product Name
 </label>
 
 <input
-
-type="text" name="product_name"
-
-placeholder="Wireless Headphones" required>
+    type="text"
+    name="product_name"
+    value="{{ product[1] }}"
+    required>
 
 </div>
 
@@ -169,15 +169,31 @@ Category
 
 </label>
 
-<select name="category" required>
+<select name="category" aria-required="">
 
-    <option value="">Select Category</option>
+<option>
 
-    <option value="Electronics">Electronics</option>
+Select Category
 
-    <option value="Accessories">Accessories</option>
+</option>
 
-    <option value="Furniture">Furniture</option>
+<option>
+
+Electronics
+
+</option>
+
+<option>
+
+Accessories
+
+</option>
+
+<option>
+
+Furniture
+
+</option>
 
 </select>
 
@@ -198,10 +214,10 @@ Price (₹)
 <i class="fa-solid fa-indian-rupee-sign"></i>
 
 <input
-
-type="number" name="price"
-
-placeholder="0.00" required>
+    type="number"
+    name="price"
+    value="{{ product[3] }}"
+    required>
 
 </div>
 
@@ -227,12 +243,10 @@ placeholder="0.00" required>
         </label>
 
         <input
-
-            type="number" name="quantity"
-
-            placeholder="0" 
-
-            min="0" required>
+    type="number"
+    name="quantity"
+    value="{{ product[4] }}"
+    required>
 
     </div>
 
@@ -249,10 +263,9 @@ placeholder="0.00" required>
         </label>
 
         <input
-
-            type="text" name="supplier"
-
-            placeholder="TechDistrib Ltd.">
+    type="text"
+    name="supplier"
+    value="{{ product[5] }}">
 
     </div>
 
@@ -269,10 +282,9 @@ placeholder="0.00" required>
     </label>
 
     <input
-
-        type="text" name="sku"
-
-        placeholder="STK-2026-001">
+    type="text"
+    name="sku"
+    value="{{ product[6] }}">
 
 </div>
 
@@ -286,11 +298,7 @@ placeholder="0.00" required>
 
     </label>
 
-    <textarea name="description"
-
-        rows="5"
-
-        placeholder="Write a short product description, features, specifications and warranty details..."></textarea>
+    <textarea name="description">{{ product[7] }}</textarea>
 
 </div>
 
@@ -307,10 +315,23 @@ placeholder="0.00" required>
         </label>
 
         <select name="status" required>
-    <option value="In Stock">In Stock</option>
-    <option value="Low Stock">Low Stock</option>
-    <option value="Out Of Stock">Out Of Stock</option>
-    </select>
+
+    <option value="In Stock"
+        {% if product[8] == "In Stock" %}selected{% endif %}>
+        In Stock
+    </option>
+
+    <option value="Low Stock"
+        {% if product[8] == "Low Stock" %}selected{% endif %}>
+        Low Stock
+    </option>
+
+    <option value="Out Of Stock"
+        {% if product[8] == "Out Of Stock" %}selected{% endif %}>
+        Out Of Stock
+    </option>
+
+</select>
 
     </div>
 
