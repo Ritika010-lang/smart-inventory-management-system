@@ -49,27 +49,23 @@
 <ul>
 
 <li class="active">
-
-<i class="fa-solid fa-house"></i>
-
-Dashboard
-
+    <a href="{{ url_for('dashboard') }}">
+        <i class="fa-solid fa-house"></i>
+        Dashboard
+    </a>
 </li>
 
 <li>
-
-<i class="fa-solid fa-box"></i>
-
-Products
-
+    <a href="{{ url_for('products') }}">
+        <i class="fa-solid fa-box"></i>
+        Products
+    </a>
 </li>
-
 <li>
-
-<i class="fa-solid fa-warehouse"></i>
-
-Inventory
-
+    <a href="{{ url_for('inventory') }}">
+        <i class="fa-solid fa-warehouse"></i>
+        Inventory
+    </a>
 </li>
 
 <li>
@@ -122,7 +118,7 @@ Settings
 
 <h1>Dashboard</h1>
 
-<p>Welcome back Ritika 👋</p>
+<p>Welcome back, Admin 👋</p>
 
 </div>
 
@@ -152,7 +148,7 @@ alt="">
 
 <div>
 
-<h4>Ritika</h4>
+<h4>Admin</h4>
 
 <p>Administrator</p>
 
@@ -176,7 +172,7 @@ alt="">
 
 <h3>Total Products</h3>
 
-<h1>1250</h1>
+<h1>{{ total_products }}</h1>
 
 <p>+12%</p>
 
@@ -206,9 +202,9 @@ alt="">
 
 <div>
 
-<h3>Revenue</h3>
+<h3>Total Inventory Value</h3>
 
-<h1>₹8,90,000</h1>
+<h1>₹{{ total_value }}</h1>
 
 <p>+20%</p>
 
@@ -224,7 +220,7 @@ alt="">
 
 <h3>Low Stock</h3>
 
-<h1>12</h1>
+<h1>{{ low_stock }}</h1>
 
 <p>Alert</p>
 

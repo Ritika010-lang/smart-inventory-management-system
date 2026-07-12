@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Inventory | StockFlow</title>
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/inventory.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ===========================
+            SIDEBAR
+============================ -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<i class="fa-solid fa-boxes-stacked"></i>
+
+<div>
+
+<h2>StockFlow</h2>
+
+<p>Smart Inventory</p>
+
+</div>
+
+</div>
+
+<nav>
+
+<ul>
+
+<li>
+
+<a href="/dashboard">
+
+<i class="fa-solid fa-chart-line"></i>
+
+Dashboard
+
+</a>
+
+</li>
+
+<li>
+
+<a href="/products">
+
+<i class="fa-solid fa-box"></i>
+
+Products
+
+</a>
+
+</li>
+
+<li class="active">
+
+<a href="/inventory">
+
+<i class="fa-solid fa-warehouse"></i>
+
+Inventory
+
+</a>
+
+</li>
+
+<li>
+
+<a href="/sales">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+Sales
+
+</a>
+
+</li>
+
+<li>
+
+<a href="/reports">
+
+<i class="fa-solid fa-chart-pie"></i>
+
+Reports
+
+</a>
+
+</li>
+
+<li>
+
+<a href="#">
+
+<i class="fa-solid fa-gear"></i>
+
+Settings
+
+</a>
+
+</li>
+
+</ul>
+
+</nav>
+
+<div class="sidebar-user">
+
+<div class="avatar">
+
+RG
+
+</div>
+
+<div>
+
+<h4>
+
+Ritika Goel
+
+</h4>
+
+<p>
+
+Inventory Manager
+
+</p>
+
+</div>
+
+</div>
+
+</aside>
+
+<!-- ===========================
+            MAIN
+============================ -->
+
+<main class="main">
+
+<header>
+
+<div>
+
+<h1>
+
+Inventory Management
+
+</h1>
+
+<p>
+
+Manage inventory across all warehouses
+
+</p>
+
+</div>
+
+<div class="header-right">
+
+<div class="search-box">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<input
+
+type="text"
+
+placeholder="Search inventory...">
+
+</div>
+
+<button class="icon-btn">
+
+<i class="fa-regular fa-bell"></i>
+
+</button>
+
+<button class="icon-btn">
+
+<i class="fa-solid fa-rotate-right"></i>
+
+</button>
+
+<div class="profile">
+
+<div class="profile-img">
+
+RG
+
+</div>
+
+<div>
+
+<h4>
+
+Ritika Goel
+
+</h4>
+
+<p>
+
+Admin
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- ===========================
+            KPI CARDS
+============================ -->
+
+<section class="cards">
+
+<div class="card">
+
+<div class="card-icon purple">
+
+<i class="fa-solid fa-boxes-stacked"></i>
+
+</div>
+
+<div>
+
+<h2>
+{{ total_stock }}
+</h2>
+
+<p>
+
+Total Inventory Items
+
+</p>
+
+<small>
+
+Across 4 Warehouses
+
+</small>
+
+</div>
+
+<span class="growth positive">
+
++12.4%
+
+</span>
+
+</div>
+
+<div class="card">
+
+<div class="card-icon green">
+
+<i class="fa-solid fa-arrow-trend-up"></i>
+
+</div>
+
+<div>
+
+<h2>
+₹{{ inventory_value }}
+</h2>
+
+<p>
+
+Inventory Value
+
+</p>
+
+<small>
+
+Estimated Stock Value
+
+</small>
+
+</div>
+
+<span class="growth positive">
+
++8.2%
+
+</span>
+
+</div>
+
+<div class="card">
+
+<div class="card-icon orange">
+
+<i class="fa-solid fa-triangle-exclamation"></i>
+
+</div>
+
+<div>
+
+<h2>
+{{ low_stock }}
+</h2>
+
+<p>
+
+Low Stock Products
+
+</p>
+
+<small>
+
+Require Reorder
+
+</small>
+
+</div>
+
+<span class="growth negative">
+
+3 New
+
+</span>
+
+</div>
+
+<div class="card">
+
+<div class="card-icon blue">
+
+<i class="fa-solid fa-warehouse"></i>
+
+</div>
+
+<div>
+
+<h2>
+
+64%
+
+</h2>
+
+<p>
+
+Warehouse Capacity
+
+</p>
+
+<small>
+
+2,140 Units Available
+
+</small>
+
+</div>
+
+<span class="growth negative">
+
+6.1%
+
+</span>
+
+</div>
+
+</section>
+
+<!-- =========================================
+            ACTION BAR
+========================================== -->
+
+<section class="action-bar">
+
+    <div class="left-actions">
+
+        <div class="search-filter">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                placeholder="Search Inventory ID, Product Name, SKU...">
+
+        </div>
+
+        <select>
+
+            <option>All Categories</option>
+            <option>Electronics</option>
+            <option>Accessories</option>
+            <option>Furniture</option>
+            <option>Footwear</option>
+
+        </select>
+
+        <select>
+
+            <option>All Warehouses</option>
+            <option>WH-Alpha</option>
+            <option>WH-Beta</option>
+            <option>WH-Gamma</option>
+            <option>WH-Delta</option>
+
+        </select>
+
+        <select>
+
+            <option>All Status</option>
+            <option>Healthy</option>
+            <option>Low Stock</option>
+            <option>Out of Stock</option>
+
+        </select>
+
+    </div>
+
+    <div class="right-actions">
+
+        <button class="export-btn">
+
+            <i class="fa-solid fa-download"></i>
+
+            Export
+
+        </button>
+
+        <button class="add-btn">
+
+            <i class="fa-solid fa-plus"></i>
+
+            Add Stock
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- =========================================
+            INVENTORY TABLE
+========================================== -->
+
+<section class="inventory-table">
+
+<div class="table-header">
+
+<div>
+
+<h2>
+
+Inventory Items
+
+</h2>
+
+<p>
+{{ total_products }} Products Found
+</p>
+
+</div>
+
+<button class="filter-btn">
+
+<i class="fa-solid fa-sliders"></i>
+
+Advanced Filter
+
+</button>
+
+</div>
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>INV. ID</th>
+
+<th>PRODUCT</th>
+
+<th>WAREHOUSE</th>
+
+<th>CURRENT</th>
+
+<th>RESERVED</th>
+
+<th>AVAILABLE</th>
+
+<th>REORDER LEVEL</th>
+
+<th>SUPPLIER</th>
+
+<th>STATUS</th>
+
+<th>ACTIONS</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+    {% for product in products %}
+
+<tr>
+
+    <td>INV-{{ product[0] }}</td>
+
+    <td>{{ product[1] }}</td>
+
+    <td>Main Warehouse</td>
+
+    <td>{{ product[4] }}</td>
+
+    <td>0</td>
+
+    <td>{{ product[4] }}</td>
+
+    <td>10</td>
+
+    <td>{{ product[5] }}</td>
+
+    <td>{{ product[8] }}</td>
+
+    <td>
+
+        <a href="{{ url_for('edit_product', product_id=product[0]) }}">
+            <i class="fa-regular fa-pen-to-square"></i>
+        </a>
+
+        <a href="{{ url_for('delete_product', product_id=product[0]) }}"
+           onclick="return confirm('Delete this product?')">
+            <i class="fa-regular fa-trash-can"></i>
+        </a>
+
+    </td>
+
+</tr>
+
+{% endfor %}
+
+
+
+
+</tbody>
+
+</table>
+
+</div>
+
+<div class="pagination">
+
+<p>
+
+Showing {{ total_products }} Products
+</p>
+
+<div>
+
+<button class="page active">
+
+1
+
+</button>
+
+<button class="page">
+
+2
+
+</button>
+
+<button class="page">
+
+3
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+        STOCK CARDS
+=========================== -->
+
+<section class="stock-cards">
+
+<div class="mini-card">
+
+<div class="mini-icon green">
+
+<i class="fa-solid fa-arrow-down"></i>
+
+</div>
+
+<div>
+
+<h4>
+
+Stock In
+
+</h4>
+
+<h2>
+
+560
+
+</h2>
+
+<p>
+
+Units Today
+
+</p>
+
+</div>
+
+</div>
+
+<div class="mini-card">
+
+<div class="mini-icon red">
+
+<i class="fa-solid fa-arrow-up"></i>
+
+</div>
+
+<div>
+
+<h4>
+
+Stock Out
+
+</h4>
+
+<h2>
+
+388
+
+</h2>
+
+<p>
+
+Units Today
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================
+        WAREHOUSE
+=========================== -->
+
+<section class="warehouse">
+
+<h2>
+
+Warehouse Utilization
+
+</h2>
+
+<div class="bar">
+
+<div class="info">
+
+<span>
+
+WH-Alpha
+
+</span>
+
+<span>
+
+78%
+
+</span>
+
+</div>
+
+<div class="progress">
+
+<div class="fill orange" style="width:78%;"></div>
+
+</div>
+
+</div>
+
+<div class="bar">
+
+<div class="info">
+
+<span>
+
+WH-Beta
+
+</span>
+
+<span>
+
+54%
+
+</span>
+
+</div>
+
+<div class="progress">
+
+<div class="fill green" style="width:54%;"></div>
+
+</div>
+
+</div>
+
+<div class="bar">
+
+<div class="info">
+
+<span>
+
+WH-Gamma
+
+</span>
+
+<span>
+
+91%
+
+</span>
+
+</div>
+
+<div class="progress">
+
+<div class="fill red" style="width:91%;"></div>
+
+</div>
+
+</div>
+
+<div class="bar">
+
+<div class="info">
+
+<span>
+
+WH-Delta
+
+</span>
+
+<span>
+
+33%
+
+</span>
+
+</div>
+
+<div class="progress">
+
+<div class="fill blue" style="width:33%;"></div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===========================================
+        DASHBOARD GRID
+=========================================== -->
+
+<section class="dashboard-grid">
+
+    <!-- LEFT COLUMN -->
+
+    <div class="left-column">
+
+        <!-- Stock Distribution -->
+
+        <div class="card-box">
+
+            <div class="section-header">
+
+                <h2>Stock Distribution</h2>
+
+                <button class="view-btn">View Report</button>
+
+            </div>
+
+            <div class="chart-placeholder">
+
+                <i class="fa-solid fa-chart-pie"></i>
+
+                <h3>Stock Distribution Chart</h3>
+
+                <p>
+                    Chart.js Graph will appear here after backend integration.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Recent Inventory Activity -->
+
+        <div class="card-box">
+
+            <div class="section-header">
+
+                <h2>Recent Inventory Activity</h2>
+
+                <button class="view-btn">
+
+                    View All
+
+                </button>
+
+            </div>
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+
+                    <div class="timeline-icon green">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h4>
+
+                            Stock Added
+
+                        </h4>
+
+                        <p>
+
+                            120 Units of Sony WH-1000XM5 added to WH-Alpha
+
+                        </p>
+
+                        <small>
+
+                            2 Minutes Ago
+
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <div class="timeline-item">
+
+                    <div class="timeline-icon orange">
+
+                        <i class="fa-solid fa-arrow-right-arrow-left"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h4>
+
+                            Warehouse Transfer
+
+                        </h4>
+
+                        <p>
+
+                            45 Units moved from WH-Beta to WH-Delta
+
+                        </p>
+
+                        <small>
+
+                            18 Minutes Ago
+
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <div class="timeline-item">
+
+                    <div class="timeline-icon red">
+
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h4>
+
+                            Low Stock Alert
+
+                        </h4>
+
+                        <p>
+
+                            Adidas Ultra Boost reached reorder level
+
+                        </p>
+
+                        <small>
+
+                            1 Hour Ago
+
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+
+    <div class="right-column">
+
+        <!-- Inventory Alerts -->
+
+        <div class="card-box">
+
+            <div class="section-header">
+
+                <h2>
+
+                    Inventory Alerts
+
+                </h2>
+
+            </div>
+
+            <div class="alert-item">
+
+                <div>
+
+                    <h4>
+
+                        MacBook Sleeve
+
+                    </h4>
+
+                    <small>
+
+                        Only 14 units remaining
+
+                    </small>
+
+                </div>
+
+                <span class="badge warning">
+
+                    Low
+
+                </span>
+
+            </div>
+
+            <div class="alert-item">
+
+                <div>
+
+                    <h4>
+
+                        Adidas Ultra Boost
+
+                    </h4>
+
+                    <small>
+
+                        Out of Stock
+
+                    </small>
+
+                </div>
+
+                <span class="badge danger">
+
+                    Empty
+
+                </span>
+
+            </div>
+
+            <div class="alert-item">
+
+                <div>
+
+                    <h4>
+
+                        Coffee Beans
+
+                    </h4>
+
+                    <small>
+
+                        Reorder in 2 days
+
+                    </small>
+
+                </div>
+
+                <span class="badge healthy">
+
+                    Stable
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <!-- Quick Summary -->
+
+        <div class="card-box">
+
+            <div class="section-header">
+
+                <h2>
+
+                    Quick Summary
+
+                </h2>
+
+            </div>
+
+            <div class="summary-row">
+
+                <span>Total Warehouses</span>
+
+                <strong>4</strong>
+
+            </div>
+
+            <div class="summary-row">
+
+                <span>Today's Entries</span>
+
+                <strong>560</strong>
+
+            </div>
+
+            <div class="summary-row">
+
+                <span>Today's Dispatch</span>
+
+                <strong>388</strong>
+
+            </div>
+
+            <div class="summary-row">
+
+                <span>Pending Restocks</span>
+
+                <strong>14</strong>
+
+            </div>
+
+            <div class="summary-row">
+
+                <span>Inventory Accuracy</span>
+
+                <strong>98.7%</strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===========================================
+        RECENT STOCK MOVEMENTS
+=========================================== -->
+
+<section class="card-box movement-section">
+
+    <div class="section-header">
+
+        <h2>Recent Stock Movements</h2>
+
+        <button class="view-btn">
+            View History
+        </button>
+
+    </div>
+
+    <table class="movement-table">
+
+        <thead>
+
+            <tr>
+
+                <th>Date</th>
+
+                <th>Product</th>
+
+                <th>Warehouse</th>
+
+                <th>Movement</th>
+
+                <th>Quantity</th>
+
+                <th>Performed By</th>
+
+                <th>Status</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+
+                <td>09 Jul 2026</td>
+
+                <td>Sony WH-1000XM5</td>
+
+                <td>WH-Alpha</td>
+
+                <td>Stock In</td>
+
+                <td class="green">+120</td>
+
+                <td>Ritika Goel</td>
+
+                <td>
+                    <span class="badge healthy">
+                        Completed
+                    </span>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>09 Jul 2026</td>
+
+                <td>MacBook Sleeve</td>
+
+                <td>WH-Delta</td>
+
+                <td>Stock Out</td>
+
+                <td class="red">-18</td>
+
+                <td>Admin</td>
+
+                <td>
+                    <span class="badge warning">
+                        Processing
+                    </span>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>08 Jul 2026</td>
+
+                <td>Adidas Ultra Boost</td>
+
+                <td>WH-Beta</td>
+
+                <td>Transfer</td>
+
+                <td class="orange">45</td>
+
+                <td>Warehouse Team</td>
+
+                <td>
+                    <span class="badge healthy">
+                        Completed
+                    </span>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>08 Jul 2026</td>
+
+                <td>Coffee Beans</td>
+
+                <td>WH-Gamma</td>
+
+                <td>Restock</td>
+
+                <td class="green">+220</td>
+
+                <td>Inventory Manager</td>
+
+                <td>
+                    <span class="badge healthy">
+                        Completed
+                    </span>
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</section>
+
+<!-- ===========================================
+        FOOTER
+=========================================== -->
+
+<footer class="footer">
+
+    <p>
+
+        © 2026 StockFlow — Smart Inventory & Sales Management System
+
+    </p>
+
+    <div class="footer-links">
+
+        <a href="#">Privacy</a>
+
+        <a href="#">Support</a>
+
+        <a href="#">Documentation</a>
+
+    </div>
+
+</footer>
+
+</main>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/inventory.js') }}"></script>
+
+</body>
+
+</html>
